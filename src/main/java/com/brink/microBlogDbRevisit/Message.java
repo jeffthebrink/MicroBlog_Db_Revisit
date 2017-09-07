@@ -1,16 +1,14 @@
 package com.brink.microBlogDbRevisit;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "messages")
 public class Message {
 
     @Id
-    @Column(nullable = false)
     @GeneratedValue
+    @Column(nullable = false)
     int id;
 
     @Column(nullable = false)

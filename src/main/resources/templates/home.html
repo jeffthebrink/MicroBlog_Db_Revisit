@@ -6,5 +6,23 @@
 </head>
 <body>
 
+<h1>Welcome to the MicroBlog Database!</h1>
+<br>
+<hr>
+
+<form action="/add-message" method="post">
+    <input type="text" placeholder="Enter message" name="text">
+    <button type="submit">Submit</button>
+</form>
+
+<br>
+{{^messageRepo}}
+    No messages yet...
+{{/messageRepo}}
+
+{{#messageRepo}}
+    {{id}}. {{text}}
+{{/messageRepo}}
+
 </body>
 </html>
