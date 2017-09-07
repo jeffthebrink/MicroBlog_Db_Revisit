@@ -17,12 +17,24 @@
 
 <br>
 {{^messageRepo}}
-    No messages yet...
+No messages yet...
 {{/messageRepo}}
 
-{{#messageRepo}}
-    {{id}}. {{text}}
-{{/messageRepo}}
+<ol>
+    {{#messageRepo}}
+    <li>
+
+        <form action="/delete-message?id={{id}}" method="post"> {{text}}
+            <button type="submit">Delete</button>
+        </form>
+        <form action="/edit?id={{id}}" method="get">
+            <button type="submit">Edit</button>
+        </form>
+
+    </li>
+    {{/messageRepo}}
+</ol>
+
 
 </body>
 </html>

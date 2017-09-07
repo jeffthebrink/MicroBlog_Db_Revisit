@@ -27,4 +27,17 @@ public class Controller {
         return "redirect:/";
     }
 
+    @RequestMapping(path = "/delete-message", method = RequestMethod.POST)
+    public String deleteMessage(Integer id) {
+        messageRepo.delete(id);
+        return "redirect:/";
+    }
+
+    @RequestMapping(path = "/edit", method = RequestMethod.GET)
+    public String edit(Model model, Integer id) {
+        List<Message> messageList = (List<Message>) messageRepo.findOne(id);
+        model.addAttribute("messageRepo", messageList);
+        return "edit";
+    }
+
 }
