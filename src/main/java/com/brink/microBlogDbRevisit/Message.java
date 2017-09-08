@@ -18,6 +18,11 @@ public class Message {
         this.text = text;
     }
 
+    public Message(int id, String text) {
+        this.id = id;
+        this.text = text;
+    }
+
     public Message() {
     }
 }

@@ -33,11 +33,18 @@ public class Controller {
         return "redirect:/";
     }
 
-    @RequestMapping(path = "/edit", method = RequestMethod.GET)
+    @RequestMapping(path = "/edit", method = RequestMethod.POST)
     public String edit(Model model, Integer id) {
-        List<Message> messageList = (List<Message>) messageRepo.findOne(id);
-        model.addAttribute("messageRepo", messageList);
+        Message message = messageRepo.findOne(id);
+        model.addAttribute("messageRepo", message);
         return "edit";
+    }
+
+    @RequestMapping(path = "/edit-message", method = RequestMethod.POST)
+    public String editMessage(String text, Integer id) {
+        Message message = new Message(id, text);
+        messageRepo.save(message);
+        return "redirect:/";
     }
 
 }
