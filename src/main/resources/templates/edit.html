@@ -13,14 +13,15 @@
 <h3>Current message:</h3>
 <p>
     ID: {{id}}
-    message: {{text}}
+    <br>
+    text: {{text}}
 </p>
 
 <br>
 
 <h3>Enter your new message:</h3>
 <form action="/edit-message?id={{id}}" method="post">
-    <input type="text" placeholder="message" name="text">
+    <input type="text" placeholder="message" name="text" size="50">
     <button type="submit">Submit</button>
 </form>
 
